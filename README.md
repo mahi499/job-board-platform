@@ -1,233 +1,297 @@
-# Job Board Platform
+# 🚀 AI Job Board Platform
 
-A modern, full-stack job board application built with Next.js, TypeScript, Prisma, and PostgreSQL.
-
-## Features
-
-### For Job Seekers
-- ✅ Browse and search job listings
-- ✅ Filter jobs by category, location, and job type
-- ✅ View detailed job information
-- ✅ Apply for jobs with cover letters
-- ✅ Track application status
-- ✅ User profile management
-
-### For Employers
-- ✅ Post new job listings
-- ✅ Manage posted jobs
-- ✅ View and review applications
-- ✅ Rate and provide feedback to candidates
-- ✅ Analytics dashboard
-
-### General Features
-- ✅ Secure authentication with NextAuth
-- ✅ Responsive design with Tailwind CSS
-- ✅ Type-safe API with TypeScript
-- ✅ Database with Prisma ORM
-- ✅ Modern UI components with Lucide icons
-
-## Tech Stack
-
-- **Frontend**: Next.js 14, React, Tailwind CSS
-- **Backend**: Next.js API Routes
-- **Database**: PostgreSQL with Prisma ORM
-- **Authentication**: NextAuth.js
-- **Validation**: Zod
-- **UI Icons**: Lucide React
-- **Language**: TypeScript
-
-## Getting Started
-
-### Prerequisites
-- Node.js 18+ installed
-- PostgreSQL database (Neon or local)
-- Git
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/mahi499/job-board-platform.git
-   cd job-board-platform
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Set up environment variables**
-   ```bash
-   cp .env.example .env.local
-   ```
-
-   Edit `.env.local` with your values:
-   ```env
-   DATABASE_URL="postgresql://user:password@host:port/database"
-   NEXTAUTH_URL="http://localhost:3000"
-   NEXTAUTH_SECRET="generate-using: openssl rand -base64 32"
-   NEXT_PUBLIC_APP_URL="http://localhost:3000"
-   NODE_ENV="development"
-   ```
-
-4. **Run database migrations**
-   ```bash
-   npm run prisma:migrate
-   ```
-
-5. **Generate Prisma client**
-   ```bash
-   npm run prisma:generate
-   ```
-
-6. **Start development server**
-   ```bash
-   npm run dev
-   ```
-
-   Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-## Project Structure
-
-```
-job-board-platform/
-├── src/
-│   ├── app/                 # Next.js app directory
-│   │   ├── api/            # API routes
-│   │   ├── auth/           # Authentication pages
-│   │   ├── jobs/           # Job listing pages
-│   │   ├── employer/       # Employer features
-│   │   ├── dashboard/      # User dashboard
-│   │   └── layout.tsx      # Root layout
-│   ├── components/         # React components
-│   ├── lib/                # Utilities and configuration
-│   │   ├── auth.ts        # NextAuth configuration
-│   │   └── prisma.ts      # Prisma client
-│   ├── types/              # TypeScript type definitions
-│   └── middleware.ts       # Next.js middleware
-├── prisma/
-│   └── schema.prisma       # Database schema
-├── public/                 # Static assets
-├── .env.example            # Environment variables template
-├── package.json
-├── tsconfig.json
-├── tailwind.config.ts
-└── README.md
-```
-
-## Available Scripts
-
-```bash
-npm run dev                # Start development server
-npm run build              # Build for production
-npm run start              # Start production server
-npm run lint               # Run ESLint
-npm run prisma:migrate     # Run database migrations
-npm run prisma:generate    # Generate Prisma client
-npm run prisma:studio      # Open Prisma Studio
-```
-
-## API Routes
-
-### Authentication
-- `POST /api/auth/signup` - Create new account
-- `POST /api/auth/[...nextauth]` - NextAuth authentication
-
-### Jobs
-- `GET /api/jobs` - List all jobs (with filters)
-- `POST /api/jobs` - Create new job (employer only)
-- `GET /api/jobs/[id]` - Get job details
-- `PUT /api/jobs/[id]` - Update job (owner only)
-- `DELETE /api/jobs/[id]` - Delete job (owner only)
-
-### Applications
-- `GET /api/applications` - List applications (filtered)
-- `POST /api/applications` - Submit job application
-- `GET /api/applications/[id]` - Get application details
-- `PUT /api/applications/[id]` - Update application status
-
-### Users
-- `GET /api/users/[id]` - Get user profile
-- `PUT /api/users/[id]` - Update user profile
-
-## Pages
-
-### Public Pages
-- `/` - Homepage with featured jobs
-- `/jobs` - Browse all jobs
-- `/jobs/[id]` - Job detail page
-- `/auth/signin` - Sign in page
-- `/auth/signup` - Sign up page
-
-### Protected Pages (Job Seekers)
-- `/dashboard` - My applications
-- `/profile` - Edit profile
-
-### Protected Pages (Employers)
-- `/employer/dashboard` - Manage jobs
-- `/employer/post` - Post new job
-- `/employer/applications` - View applications
-
-## Environment Variables
-
-| Variable | Description | Example |
-|----------|-------------|----------|
-| `DATABASE_URL` | PostgreSQL connection string | `postgresql://user:pass@host/db` |
-| `NEXTAUTH_URL` | Application URL | `http://localhost:3000` |
-| `NEXTAUTH_SECRET` | JWT secret key | (Generate with: `openssl rand -base64 32`) |
-| `NEXT_PUBLIC_APP_URL` | Public app URL | `http://localhost:3000` |
-| `NODE_ENV` | Environment | `development` or `production` |
-
-## Database Setup
-
-### Using Neon (Recommended)
-1. Go to [neon.tech](https://neon.tech)
-2. Create a new project
-3. Copy the connection string
-4. Add to `.env.local` as `DATABASE_URL`
-
-### Using Local PostgreSQL
-1. Install PostgreSQL
-2. Create a database: `CREATE DATABASE jobboard;`
-3. Set `DATABASE_URL` to your local connection string
-
-## Authentication
-
-The application uses NextAuth.js with Credentials provider for authentication.
-
-- **Sign Up**: Create new account with email and password
-- **Sign In**: Authenticate with email and password
-- **Sessions**: JWT-based sessions stored in browser
-- **Protected Routes**: Middleware protects dashboard and employer routes
-
-## Deployment
-
-### Deploy to Vercel
-
-1. Push your code to GitHub
-2. Go to [vercel.com](https://vercel.com)
-3. Import your repository
-4. Add environment variables
-5. Deploy!
-
-```bash
-git push origin main
-```
-
-Then connect your Vercel project to GitHub.
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-MIT License - feel free to use this project for personal or commercial purposes.
-
-## Support
-
-For issues or questions, please create an issue on GitHub.
+A modern, responsive Job Board application built using **Next.js 14**, **TypeScript**, **Prisma ORM**, **PostgreSQL (Neon)**, **NextAuth**, and **Tailwind CSS**. The application allows users to register, log in, browse available jobs, and search for opportunities through a clean and intuitive interface.
 
 ---
 
-**Happy job hunting! 🚀**
+## 🌐 Live Demo
+
+**Vercel:**  
+https://job-board-platform-eight.vercel.app
+
+---
+
+## 📂 GitHub Repository
+
+https://github.com/mahi499/job-board-platform
+
+---
+
+# 📖 Project Overview
+
+This project was developed as part of a Software Engineer assessment.
+
+The goal was to build a modern job board application with authentication, database integration, responsive UI, CI/CD automation, and cloud deployment.
+
+The project demonstrates full-stack development using the latest Next.js App Router architecture together with Prisma ORM and PostgreSQL.
+
+---
+
+# ✨ Features
+
+## Authentication
+
+- User Registration
+- User Login
+- Secure authentication using NextAuth
+- Session management
+- Logout functionality
+
+---
+
+## Job Board
+
+- Browse available jobs
+- Search jobs by:
+  - Job Title
+  - Company
+  - Location
+- Responsive job cards
+- Modern UI design
+
+---
+
+## User Experience
+
+- Responsive design
+- Mobile-friendly navigation
+- Beautiful gradients
+- Modern cards
+- Sticky navigation
+- Professional footer
+
+---
+
+## Database
+
+- PostgreSQL hosted on Neon
+- Prisma ORM
+- Seeded sample jobs
+- Secure database connection
+
+---
+
+## Deployment
+
+- GitHub Repository
+- GitHub Actions CI
+- Vercel Deployment
+
+---
+
+# 🛠 Tech Stack
+
+| Technology | Purpose |
+|------------|---------|
+| Next.js 14 | Frontend & Backend |
+| React | UI Library |
+| TypeScript | Type Safety |
+| Tailwind CSS | Styling |
+| Prisma ORM | Database ORM |
+| PostgreSQL (Neon) | Database |
+| NextAuth | Authentication |
+| GitHub Actions | CI/CD |
+| Vercel | Deployment |
+
+---
+
+# 📁 Project Structure
+
+```
+src/
+│
+├── app/
+│   ├── api/
+│   ├── auth/
+│   ├── jobs/
+│   └── page.tsx
+│
+├── components/
+│   ├── Navigation
+│   ├── Footer
+│   ├── JobCard
+│   └── ...
+│
+├── lib/
+│
+├── types/
+│
+prisma/
+│
+.github/
+│
+```
+
+---
+
+# ⚙ Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/mahi499/job-board-platform.git
+```
+
+Go inside the project
+
+```bash
+cd job-board-platform
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Generate Prisma Client
+
+```bash
+npx prisma generate
+```
+
+Run database migrations
+
+```bash
+npx prisma migrate dev
+```
+
+Seed the database
+
+```bash
+npm run seed
+```
+
+Start the development server
+
+```bash
+npm run dev
+```
+
+---
+
+# 🔑 Environment Variables
+
+Create a `.env.local` file.
+
+```env
+DATABASE_URL=
+
+NEXTAUTH_URL=
+
+NEXTAUTH_SECRET=
+
+NEXT_PUBLIC_APP_URL=
+
+RESEND_API_KEY=
+```
+
+---
+
+# 🗄 Database
+
+The project uses
+
+- PostgreSQL
+- Prisma ORM
+- Neon Cloud Database
+
+Seed data is provided through
+
+```
+prisma/seed.ts
+```
+
+---
+
+# 🔄 CI/CD Pipeline
+
+The project uses **GitHub Actions** for Continuous Integration.
+
+Pipeline steps:
+
+- Checkout repository
+- Install dependencies
+- Generate Prisma Client
+- Build project
+- Verify production build
+
+Workflow file:
+
+```
+.github/workflows/ci.yml
+```
+
+---
+
+# ☁ Deployment
+
+The application is deployed using **Vercel**.
+
+Deployment process:
+
+- Push code to GitHub
+- GitHub Actions validates build
+- Vercel automatically deploys latest commit
+- Production environment variables configured in Vercel
+
+---
+
+
+# 🚀 Future Improvements
+
+- Employer Dashboard
+- Job Posting
+- Resume Upload
+- Apply to Jobs
+- Admin Dashboard
+- Email Notifications
+- Filters
+- Pagination
+- Saved Jobs
+
+---
+
+# 👨‍💻 AI Usage
+
+Artificial Intelligence tools were used to assist in:
+
+- UI improvements
+- Component generation
+- Documentation
+- GitHub Actions workflow
+- Deployment troubleshooting
+- Code optimization
+
+All generated code was reviewed, integrated, tested, debugged, and customized before deployment.
+
+---
+
+# ✅ Build Status
+
+- Authentication ✔
+- Database ✔
+- Prisma ✔
+- Responsive UI ✔
+- Search ✔
+- GitHub Actions ✔
+- Vercel Deployment ✔
+- Production Build ✔
+
+---
+
+# 📄 License
+
+This project was created for a Software Engineer technical assessment.
+
+---
+
+# 🙏 Acknowledgements
+
+- Next.js
+- Prisma
+- NextAuth
+- Neon
+- Tailwind CSS
+- Vercel
+- GitHub Actions
