@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { Navigation } from '@/components/navigation'
-import { Footer } from '@/components/Footer'
+import Footer from '@/components/Footer'
 import JobCard from '@/components/JobCard'
 
 interface Job {
